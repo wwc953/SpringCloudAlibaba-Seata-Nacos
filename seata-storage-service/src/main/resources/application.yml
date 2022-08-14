@@ -1,0 +1,39 @@
+server:
+  port: 8181
+spring:
+  application:
+    name: seata-storage-service
+  cloud:
+#    alibaba:
+#      seata:
+#        tx-service-group: seata-storage-group
+    nacos:
+      discovery:
+        server-addr: 124.223.82.36:18848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: mysql
+    url: jdbc:mysql://124.223.82.36:18888/seat-storage
+    username: root
+logging:
+  level:
+    io:
+      seata: info
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+
+seata:
+  tx-service-group: seata-storage-group
+  enable-auto-data-source-proxy: true
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 124.223.82.36:18848
+      application: seata-server
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos:
+      server-addr: 124.223.82.36:18848
+      group: SEATA_GROUP
+      dataId: "seataServer.properties"

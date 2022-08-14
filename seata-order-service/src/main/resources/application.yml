@@ -1,0 +1,38 @@
+server:
+  port: 8180
+spring:
+  application:
+    name: seata-order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.223.82.36:18848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: mysql
+    url: jdbc:mysql://124.223.82.36:18888/seat-order
+    username: root
+feign:
+  hystrix:
+    enabled: false
+logging:
+  level:
+    io:
+      seata: info
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+
+seata:
+  tx-service-group: seata-order-group
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 124.223.82.36:18848
+      application: seata-server
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos:
+      server-addr: 124.223.82.36:18848
+      group: SEATA_GROUP
+      dataId: "seataServer.properties"
