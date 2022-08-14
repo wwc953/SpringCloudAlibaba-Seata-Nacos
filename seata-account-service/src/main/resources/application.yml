@@ -23,7 +23,6 @@ mybatis:
 #====================================Seata Config===============================================
 seata:
   tx-service-group: seata-account-group
-  enable-auto-data-source-proxy: true
   registry:
     type: nacos
     nacos:

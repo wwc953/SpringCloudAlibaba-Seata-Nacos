@@ -52,7 +52,7 @@ public class OrderServiceImpl implements OrderService {
         LOGGER.info("------->order-service中修改订单状态开始");
         orderDao.update(order.getUserId(),0);
         LOGGER.info("------->order-service中修改订单状态结束");
-//        int i=1/0;
+        int i=1/0;
         LOGGER.info("------->下单结束");
     }
 }
